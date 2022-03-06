@@ -1,0 +1,35 @@
+<h2 class="display-2">Item Details</h2>
+
+<div>
+  <h3><em>{{insuredItem.name}}</em></h3>
+  <p class="lead">{{insuredItem.authorArtist}}</p>
+  </div>
+  <dl class="row mb-4">
+    <dt class="col-sm-3">Released</dt>
+    <dd class="col-sm-9">{{insuredItem.releaseYear}}&nbsp;</dd>
+
+    <dt class="col-sm-3">Estimated Value</dt>
+    <dd class="col-sm-9 cm-estimated-value">{{insuredItem.estimatedValue}}&nbsp;</dd>
+
+    <dt class="col-sm-3">Product Type</dt>
+    <dd class="col-sm-9 cm-product-type">{{insuredItem.productType}}&nbsp;</dd>
+
+    <dt class="col-sm-3">Product Code</dt>
+    <dd class="col-sm-9"><span class="user-select-all">{{insuredItem.productCode}}</span>&nbsp;</dd>
+
+    <dt class="col-sm-3">Description</dt>
+    <dd class="col-sm-9">{{insuredItem.description}}&nbsp;</dd>
+  </dl>
+
+
+<div class="btn-group btn-group-sm" role="group">
+  <button (click)="goToInsuredItemList()" class="btn btn-outline-secondary">
+    Go Back
+  </button>
+  <button (click)="updateInsuredItem(insuredItem.id)" class="btn btn-outline-secondary">
+    Update
+  </button>
+</div>
+<button (click)="deleteInsuredItem(insuredItem.id)" class="btn btn-sm btn-danger ms-3">
+  Delete
+</button>
