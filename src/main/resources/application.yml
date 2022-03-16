@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${JDBC_DATABASE_URL:jdbc:h2:./src/main/resources/personal-property;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE}
-    username: ${JDBC_DATABASE_USER:user}
-    password: ${JDBC_DATABASE_PASS:pass}
+    url: ${env.JDBC_DATABASE_URL:jdbc:h2:./src/main/resources/personal-property;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE}
+    username: ${env.JDBC_DATABASE_USER:user}
+    password: ${env.JDBC_DATABASE_PASS:pass}
   dbcp2:
     max-wait-millis: 30000
     validation-query: SELECT 1
@@ -20,8 +20,8 @@ spring:
           new_generator_mappings: true
   security:
     user:
-      name: ${SECURITY_USER:user}
-      password: ${SECURITY_PASS:pass}
+      name: ${env.SECURITY_USER:user}
+      password: ${env.SECURITY_PASS:pass}
   bucket4j:
     enabled: true
     filters:
