@@ -12,6 +12,7 @@ import { DetailInsuredComponent } from './detail-insured/detail-insured.componen
 import { LoginComponent } from './login/login.component';
 import { HttpInterceptorService } from './httpInterceptor.service';
 import { LogoutComponent } from './logout/logout.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LogoutComponent } from './logout/logout.component';
     ListInsuredComponent,
     DetailInsuredComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

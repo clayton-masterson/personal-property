@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MenuComponent } from '../menu/menu.component';
 import { AuthenticationService } from './auth.service';
 
 @Component({
