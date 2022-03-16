@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: "https://personal-property.herokuapp.com"
+  baseUrl: process.env["BASE_URL"]
 };
