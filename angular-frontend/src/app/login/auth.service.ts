@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,14 +9,16 @@ import { map } from 'rxjs';
 export class AuthenticationService {
   USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
 
+  private apiUrl = environment.baseUrl + "/api/login"
+
   public username: any;
   public password: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) {}
 
   authenticationService(username: String, password: String) {
-    return this.http
-      .get(`http://localhost:8080/api/login`, {
+    return this.httpClient
+      .get(`${this.apiUrl}`, {
         headers: {
           authorization: this.createBasicAuthToken(username, password),
         },
