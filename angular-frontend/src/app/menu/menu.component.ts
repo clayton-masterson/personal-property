@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from './login/auth.service';
+import { AuthenticationService } from '../login/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class AppComponent implements OnInit{
-  
-  title = 'Insured Possessions';
+export class MenuComponent implements OnInit {
 
-  isLoggedIn = true;
+  isLoggedIn = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,10 +19,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.isLoggedIn = this.authenticationService.isUserLoggedIn();
-    console.log('menu logged in : ' + this.isLoggedIn);
+    console.log('menu -> ' + this.isLoggedIn);
   }
 
-  doLogout() {
+  handleLogout() {
     this.authenticationService.logout();
   }
 
