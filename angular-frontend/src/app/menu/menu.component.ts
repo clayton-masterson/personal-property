@@ -19,11 +19,12 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = this.authenticationService.isUserLoggedIn();
-    console.log('menu logged in : ' + this.isLoggedIn);
+    console.log("logged in : " + this.isLoggedIn);
   }
 
   doLogout() {
     this.authenticationService.logout();
   }
+  
 
 }

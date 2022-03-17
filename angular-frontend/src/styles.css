@@ -21,7 +21,7 @@ app-root {
 }
 
 .form-floating > label {
-  left: .5em;
+  left: .5em !important;
 }
 
 /* Enum to Title Case */

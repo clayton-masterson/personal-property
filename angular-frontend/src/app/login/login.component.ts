@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuComponent } from '../menu/menu.component';
 import { AuthenticationService } from './auth.service';
@@ -11,10 +11,7 @@ import { AuthenticationService } from './auth.service';
 export class LoginComponent implements OnInit {
   username!: string;
   password!: string;
-  errorMessage = 'Invalid Credentials';
-  successMessage!: string;
-  invalidLogin = false;
-  loginSuccess = false;
+  showLoginError = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,14 +26,11 @@ export class LoginComponent implements OnInit {
       .authenticationService(this.username, this.password)
       .subscribe({
         next: (data) => {
-          this.invalidLogin = false;
-          this.loginSuccess = true;
-          this.successMessage = 'Login successful';
+          this.showLoginError = false;
           this.router.navigate(['insured-list']);
         },
         error: (error) => {
-          this.invalidLogin = true;
-          this.loginSuccess = false;
+          this.showLoginError = true;
         }
       });
   }

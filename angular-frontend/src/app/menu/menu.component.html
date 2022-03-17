@@ -13,20 +13,20 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="col-auto me-auto">
-          <ul class="navbar-nav justify-content-end" *ngIf="isLoggedIn">
-            <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="insured-list">All Items</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="logout" (click)="doLogout()">Logout</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-auto">
-          <button class="btn btn-outline-light" role="button" routerLinkActive="active"
-            routerLink="insured-create">&plus; New Item</button>
-        </div>
+          <div class="col-auto me-auto">
+            <ul class="navbar-nav justify-content-end">
+              <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" routerLink="insured-list">All Items</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="logout" (click)="doLogout()">Logout</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-auto">
+            <button class="btn btn-outline-light" role="button" routerLinkActive="active"
+              routerLink="insured-create">&plus; New Item</button>
+          </div>
       </div>
     </div>
   </nav>
