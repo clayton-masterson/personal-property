@@ -1,30 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../login/auth.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
 
-  isLoggedIn = false;
-
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) { }
-
-  ngOnInit(): void {
-    this.isLoggedIn = this.authenticationService.isUserLoggedIn();
-    console.log("logged in : " + this.isLoggedIn);
-  }
-
-  doLogout() {
-    this.authenticationService.logout();
-  }
+  constructor() { }
   
 
 }

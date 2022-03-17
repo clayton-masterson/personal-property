@@ -9,9 +9,6 @@ import { CreateInsuredComponent } from './create-insured/create-insured.componen
 import { UpdateInsuredComponent } from './update-insured/update-insured.component';
 import { ListInsuredComponent } from './list-insured/list-insured.component';
 import { DetailInsuredComponent } from './detail-insured/detail-insured.component';
-import { LoginComponent } from './login/login.component';
-import { HttpInterceptorService } from './httpInterceptor.service';
-import { LogoutComponent } from './logout/logout.component';
 import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
@@ -21,8 +18,6 @@ import { MenuComponent } from './menu/menu.component';
     UpdateInsuredComponent,
     ListInsuredComponent,
     DetailInsuredComponent,
-    LoginComponent,
-    LogoutComponent,
     MenuComponent
   ],
   imports: [
@@ -31,13 +26,7 @@ import { MenuComponent } from './menu/menu.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorService,
-      multi: true
-    }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
