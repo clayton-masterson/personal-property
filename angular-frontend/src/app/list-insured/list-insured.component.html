@@ -6,8 +6,8 @@
     <thead class="table-light">
       <tr>
         <th>Name</th>
-        <th class="d-none d-md-table-cell">Type</th>
         <th class="d-none d-sm-table-cell">Creator</th>
+        <th class="d-none d-md-table-cell">Type</th>
         <th class="d-none d-md-table-cell">Value</th>
       </tr>
     </thead>
@@ -15,8 +15,8 @@
     <tbody>
       <tr class="align-middle" *ngFor="let insuredItem of insuredItems" (click)="insuredItemDetails(insuredItem.id)">
         <td>{{ insuredItem.name }}</td>
-        <td class="d-none d-md-table-cell cm-product-type">{{ insuredItem.productType }}</td>
         <td class="d-none d-sm-table-cell">{{ insuredItem.authorArtist }}</td>
+        <td class="d-none d-md-table-cell cm-product-type">{{ insuredItem.productType }}</td>
         <td class="d-none d-md-table-cell cm-estimated-value">{{ insuredItem.estimatedValue }}</td>
       </tr>
     </tbody>
