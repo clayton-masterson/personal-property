@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${env.JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/personal-property}
+    url: ${env.DATABASE_URL:jdbc:postgresql://localhost:5432/personal-property}
     username: ${env.JDBC_DATABASE_USER:postgres}
     password: ${env.JDBC_DATABASE_PASS:pass}
   dbcp2:
