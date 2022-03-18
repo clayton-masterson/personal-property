@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: ${env.DATABASE_URL:jdbc:postgresql://localhost:5432/personal-property}
-    username: ${env.JDBC_DATABASE_USER:postgres}
-    password: ${env.JDBC_DATABASE_PASS:pass}
+    username: ${env.DATABASE_USER:postgres}
+    password: ${env.DATABASE_PASS:pass}
   dbcp2:
     max-wait-millis: 30000
     validation-query: SELECT 1

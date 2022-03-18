@@ -11,6 +11,7 @@ import { ListInsuredComponent } from './list-insured/list-insured.component';
 import { DetailInsuredComponent } from './detail-insured/detail-insured.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
     DetailInsuredComponent,
     MenuComponent,
     HomeComponent,
+    FooterComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
