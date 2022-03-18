@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: ${env.JDBC_DATABASE_URL:jdbc:h2:./src/main/resources/personal-property;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE}
-    username: ${env.JDBC_DATABASE_USER:user}
+    url: ${env.JDBC_DATABASE_URL:jdbc:postgresql://localhost:5432/personal-property}
+    username: ${env.JDBC_DATABASE_USER:postgres}
     password: ${env.JDBC_DATABASE_PASS:pass}
   dbcp2:
     max-wait-millis: 30000
@@ -19,6 +19,8 @@ spring:
         id:
           new_generator_mappings: true
   security:
+    ignored:
+      - "*.bundle.*"
     user:
       name: ${env.SECURITY_USER:user}
       password: ${env.SECURITY_PASS:pass}

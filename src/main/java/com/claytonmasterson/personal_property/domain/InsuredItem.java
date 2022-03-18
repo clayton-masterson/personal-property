@@ -43,7 +43,7 @@ public class InsuredItem {
     @Column
     private Double estimatedValue;
 
-    @Column(columnDefinition = "clob")
+    @Column(columnDefinition = "text")
     private String description;
 
 }
