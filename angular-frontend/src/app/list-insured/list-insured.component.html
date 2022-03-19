@@ -1,27 +1,35 @@
-<div class="container bg-light border border-secondary rounded-3 shadow-lg p-sm-3 my-sm-4 py-3">
+<div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+  <div class="modal-content rounded-5 shadow">
 
-  <h2 class="display-5 fw-bold">Item List</h2>
+    <div class="modal-header p-4 pb-2 border-bottom-0">
+      <h2 class="display-5 fw-bold">Item List</h2>
+    </div>
 
-  <div class="table-responsive">
-    <table class="table table-hover">
-      <caption class="visually-hidden-focusable">List of all items</caption>
-      <thead class="table-light">
-        <tr>
-          <th>Name</th>
-          <th class="d-none d-sm-table-cell">Creator</th>
-          <th class="d-none d-md-table-cell">Type</th>
-          <th class="d-none d-md-table-cell">Value</th>
-        </tr>
-      </thead>
+    <div class="modal-body p-4 py-0">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <caption class="visually-hidden-focusable">List of all items</caption>
+          <thead class="table-light">
+            <tr>
+              <th>Name / Title</th>
+              <th class="d-none d-sm-table-cell">Creator</th>
+              <th class="d-none d-md-table-cell">Type</th>
+              <th class="d-none d-md-table-cell">Value</th>
+            </tr>
+          </thead>
 
-      <tbody>
-        <tr class="align-middle" *ngFor="let insuredItem of insuredItems" (click)="insuredItemDetails(insuredItem.id)">
-          <td>{{ insuredItem.name }}</td>
-          <td class="d-none d-sm-table-cell">{{ insuredItem.authorArtist }}</td>
-          <td class="d-none d-md-table-cell cm-product-type">{{ insuredItem.productType }}</td>
-          <td class="d-none d-md-table-cell cm-estimated-value">{{ insuredItem.estimatedValue }}</td>
-        </tr>
-      </tbody>
-    </table>
+          <tbody>
+            <tr class="align-middle" *ngFor="let insuredItem of insuredItems"
+              (click)="insuredItemDetails(insuredItem.id)">
+              <td>{{ insuredItem.name }}</td>
+              <td class="d-none d-sm-table-cell">{{ insuredItem.authorArtist }}</td>
+              <td class="d-none d-md-table-cell cm-product-type">{{ insuredItem.productType }}</td>
+              <td class="d-none d-md-table-cell">$ {{ insuredItem.estimatedValue }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 </div>

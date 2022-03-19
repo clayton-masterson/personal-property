@@ -15,7 +15,9 @@ export class CreateInsuredComponent implements OnInit {
 
   constructor(private insuredService: InsuredService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.insuredItem.productType = "GENERAL";
+  }
 
   saveInsuredItem() {
     this.insuredService.createInsuredItem(this.insuredItem).subscribe({

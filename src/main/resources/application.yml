@@ -36,3 +36,5 @@ spring:
                 unit: seconds
 springdoc:
   pathsToMatch: /api/**
+  api-docs.enabled: false
+  swagger-ui.enabled: false

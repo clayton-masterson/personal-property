@@ -1,38 +1,36 @@
-<div class="container bg-light border border-secondary rounded-3 shadow-lg p-sm-3 my-sm-4 py-3">
+<div class="modal-dialog modal-lg">
+  <div class="modal-content rounded-5 shadow">
 
-  <h2 class="display-5 fw-bold">{{insuredItem.name}}</h2>
+    <div class="modal-header p-4 pb-4 border-bottom-0">
+      <h2 class="display-5 fw-bold">{{insuredItem.name}}</h2>
+    </div>
 
-  <div>
-    <h3><em></em></h3>
-    <p class="lead">{{insuredItem.authorArtist}}</p>
+    <div class="modal-body p-4 py-0">
+      <div class="row row-cols-auto align-items-end justify-content-between">
+        <p class="col mb-2 lead" [hidden]="!insuredItem.authorArtist">{{insuredItem.authorArtist}}</p>
+        <p class="col mb-2 cm-product-type"><strong>{{insuredItem.productType}}</strong></p>
+        <p class="col mb-2 text-sm-end" [hidden]="!insuredItem.releaseYear"><strong>Released
+          </strong>{{insuredItem.releaseYear}}</p>
+        <p class="col mb-2 text-sm-end" [hidden]="!insuredItem.productCode"><strong>Code </strong><span
+            class="user-select-all">{{insuredItem.productCode}}</span></p>
+        <p class="col mb-2 text-sm-end" [hidden]="!insuredItem.estimatedValue"><strong>Value
+          </strong>${{insuredItem.estimatedValue}}</p>
+      </div>
+      <div class="row my-3" [hidden]="!insuredItem.description">
+        <h3>Description</h3>
+        <p>{{insuredItem.description}}&nbsp;</p>
+      </div>
+    </div>
+
+    <div class="modal-footer flex-nowrap justify-content-between pt-0 border-top-0">
+      <div class="col-md-3 offset-md-3">
+        <button class="btn btn-danger" (click)="deleteInsuredItem(insuredItem.id)">Delete</button>
+      </div>
+      <div class="col-md-6 btn-group">
+        <button class="btn btn-outline-secondary" (click)="goToInsuredItemList()">Back to List</button>
+        <button class="btn btn-primary" (click)="updateInsuredItem(insuredItem.id)">Update</button>
+      </div>
+    </div>
+
   </div>
-  <dl class="row mb-4">
-    <dt class="col-sm-3">Released</dt>
-    <dd class="col-sm-9">{{insuredItem.releaseYear}}&nbsp;</dd>
-
-    <dt class="col-sm-3">Estimated Value</dt>
-    <dd class="col-sm-9 cm-estimated-value">{{insuredItem.estimatedValue}}&nbsp;</dd>
-
-    <dt class="col-sm-3">Product Type</dt>
-    <dd class="col-sm-9 cm-product-type">{{insuredItem.productType}}&nbsp;</dd>
-
-    <dt class="col-sm-3" [hidden]="!insuredItem.productCode">Product Code</dt>
-    <dd class="col-sm-9" [hidden]="!insuredItem.productCode"><span class="user-select-all">{{insuredItem.productCode}}</span>&nbsp;</dd>
-
-    <dt class="col-sm-3">Description</dt>
-    <dd class="col-sm-9">{{insuredItem.description}}&nbsp;</dd>
-  </dl>
-
-
-  <div class="btn-group" role="group">
-    <button (click)="goToInsuredItemList()" class="btn btn-outline-secondary">
-      Go Back
-    </button>
-    <button (click)="updateInsuredItem(insuredItem.id)" class="btn btn-outline-secondary">
-      Update
-    </button>
-  </div>
-  <button (click)="deleteInsuredItem(insuredItem.id)" class="btn btn-danger ms-3">
-    Delete
-  </button>
 </div>
