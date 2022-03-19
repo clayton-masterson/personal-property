@@ -1,14 +1,26 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateInsuredComponent } from './create-insured/create-insured.component';
 import { UpdateInsuredComponent } from './update-insured/update-insured.component';
 import { ListInsuredComponent } from './list-insured/list-insured.component';
 import { DetailInsuredComponent } from './detail-insured/detail-insured.component';
+import { MenuComponent } from './menu/menu.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'insured-list', component: ListInsuredComponent },
+  { path: 'insured-details/:id', component: DetailInsuredComponent },
+  { path: 'insured-create', component: CreateInsuredComponent },
+  { path: 'insured-update/:id', component: UpdateInsuredComponent },
+];
 
 @NgModule({
   declarations: [
@@ -16,15 +28,19 @@ import { DetailInsuredComponent } from './detail-insured/detail-insured.componen
     CreateInsuredComponent,
     UpdateInsuredComponent,
     ListInsuredComponent,
-    DetailInsuredComponent
+    DetailInsuredComponent,
+    MenuComponent,
+    HomeComponent,
+    FooterComponent,
   ],
   imports: [
+    RouterModule.forRoot(routes),
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
+  exports: [RouterModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

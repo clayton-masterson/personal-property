@@ -1,31 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, isDevMode, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InsuredItem } from '../insured';
 import { InsuredService } from '../insured.service';
 import { AppComponent } from '../app.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create-insured',
   templateUrl: './create-insured.component.html',
-  styleUrls: ['./create-insured.component.css']
+  styleUrls: ['./create-insured.component.css'],
 })
 export class CreateInsuredComponent implements OnInit {
-
   insuredItem: InsuredItem = new InsuredItem();
 
-  constructor(private insuredService: InsuredService, private router: Router) { }
+  constructor(private insuredService: InsuredService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   saveInsuredItem() {
     this.insuredService.createInsuredItem(this.insuredItem).subscribe({
-      next: data => {
-        console.log(data);
+      next: (data) => {
         this.goToInsuredItemList();
+        if (isDevMode()) {console.log(data)}
       },
-      error: error => console.log(error)
-    })
+      error: (error) => console.log(error),
+    });
   }
 
   goToInsuredItemList() {
@@ -33,7 +32,9 @@ export class CreateInsuredComponent implements OnInit {
   }
 
   onSubmit() {
-    let form = document.getElementsByClassName('needs-validation')[0] as HTMLFormElement;
+    let form = document.getElementsByClassName(
+      'needs-validation'
+    )[0] as HTMLFormElement;
     if (form.checkValidity() === false) {
       event?.preventDefault;
       event?.stopPropagation;
@@ -43,5 +44,4 @@ export class CreateInsuredComponent implements OnInit {
     }
     form.classList.add('was-validated');
   }
-
 }

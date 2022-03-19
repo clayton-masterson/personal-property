@@ -1,31 +1,38 @@
-<div class="row">
-    <h2 class="display-2">Add Item</h2>
-  
+<div class="container bg-light border border-secondary rounded-3 shadow-lg p-sm-3 my-sm-4 py-3">
+
+  <div class="row">
+    <h2 class="display-5 fw-bold">Add New Item</h2>
+
     <form (ngSubmit)="onSubmit()" autocomplete="off" class="needs-validation">
       <div class="row g-3">
         <div class="col-md-6 form-floating">
-          <input type="text" class="form-control" id="name" name="name" placeholder="name" [(ngModel)]="insuredItem.name" required />
-          <label class="form-label" for="name">Name</label>
-          <div class="invalid-feedback">Name is required.</div>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Name / Title"
+            [(ngModel)]="insuredItem.name" required />
+          <label class="form-label" for="name">Name / Title</label>
+          <div class="invalid-feedback">Name / Title is required.</div>
         </div>
         <div class="col-md-6 form-floating">
-          <input type="text" class="form-control" id="authorArtist" name="authorArtist" placeholder="Creator" [(ngModel)]="insuredItem.authorArtist" />          
+          <input type="text" class="form-control" id="authorArtist" name="authorArtist" placeholder="Creator"
+            [(ngModel)]="insuredItem.authorArtist" />
           <label class="form-label" for="authorArtist">Creator</label>
         </div>
 
         <div class="col-md-6 form-floating">
-          <input type="text" pattern="\d{4}" class="form-control" id="releaseYear" name="releaseYear" placeholder="Release Year" [(ngModel)]="insuredItem.releaseYear" />
+          <input type="number" min="0" max="3000" class="form-control" id="releaseYear" name="releaseYear"
+            placeholder="Release Year" [(ngModel)]="insuredItem.releaseYear" />
           <label class="form-label" for="releaseYear">Release Year</label>
-          <div class="invalid-feedback">Must be a year.</div>
+          <div class="invalid-feedback">Must be a valid year.</div>
         </div>
         <div class="col-md-6 form-floating">
-          <input type="text" pattern="\d+\.?\d*" class="form-control" id="estimatedValue" name="estimatedValue" placeholder="Estimated Value" [(ngModel)]="insuredItem.estimatedValue" />
+          <input type="number" step="any" class="form-control" id="estimatedValue" name="estimatedValue"
+            placeholder="Estimated Value" [(ngModel)]="insuredItem.estimatedValue" />
           <label class="form-label" for="estimatedValue">Estimated Value</label>
-          <div class="invalid-feedback">Must be a decimal.</div>
+          <div class="invalid-feedback">Must be a number.</div>
         </div>
 
         <div class="col-md-6 form-floating">
-          <select class="form-select" id="productType" name="productType" placeholder="Type" [(ngModel)]="insuredItem.productType" required>
+          <select class="form-select" id="productType" name="productType"
+            [(ngModel)]="insuredItem.productType" required>
             <option value="GENERAL" selected>General</option>
             <option value="BOOK">Book</option>
             <option value="CLOTHING">Clothing</option>
@@ -38,14 +45,16 @@
           <div class="invalid-feedback">Type is required.</div>
         </div>
         <div class="col-md-6 form-floating">
-          <input type="text" class="form-control" id="productCode" name="productCode" placeholder="Product Code" [(ngModel)]="insuredItem.productCode" />
+          <input type="text" class="form-control" id="productCode" name="productCode" placeholder="Product Code"
+            [(ngModel)]="insuredItem.productCode" />
           <label class="form-label" for="productCode">Product Code</label>
         </div>
 
         <div class="col-12">
           <label class="form-label" for="description">Description</label>
-          <textarea class="form-control" id="description" name="description" [(ngModel)]="insuredItem.description"></textarea>
-        </div>        
+          <textarea class="form-control" id="description" name="description"
+            [(ngModel)]="insuredItem.description"></textarea>
+        </div>
 
         <div class="col-12">
           <button class="btn btn-outline-success" type="submit">Submit</button>
@@ -54,3 +63,4 @@
       </div>
     </form>
   </div>
+</div>

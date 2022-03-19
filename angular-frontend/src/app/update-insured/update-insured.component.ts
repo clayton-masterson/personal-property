@@ -35,7 +35,6 @@ export class UpdateInsuredComponent implements OnInit {
       next: data => {
         console.log(data);
         this.insuredItemDetails(this.id);
-        //this.goToInsuredItemList();
       },
       error: error => console.log(error)
     })

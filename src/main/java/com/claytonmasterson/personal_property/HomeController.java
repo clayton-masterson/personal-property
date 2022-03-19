@@ -1,17 +1,26 @@
 package com.claytonmasterson.personal_property;
 
+import org.springframework.boot.web.server.ErrorPage;
+import org.springframework.boot.web.server.ErrorPageRegistrar;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
 public class HomeController {
 
-    @GetMapping("/")
-    @ResponseBody
+    @RequestMapping(value = "/")
     public String index() {
-        return "Personal Property";
+        return "index";
+    }
+
+    @Bean
+    public ErrorPageRegistrar errorPageRegistrar() {
+        return registry -> registry.addErrorPages(
+                new ErrorPage(HttpStatus.NOT_FOUND, "/index.html")
+        );
     }
 
 }
