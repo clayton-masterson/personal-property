@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, isDevMode, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InsuredItem } from '../insured';
 import { InsuredService } from '../insured.service';
 import { AppComponent } from '../app.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-create-insured',
@@ -19,8 +20,8 @@ export class CreateInsuredComponent implements OnInit {
   saveInsuredItem() {
     this.insuredService.createInsuredItem(this.insuredItem).subscribe({
       next: (data) => {
-        console.log(data);
         this.goToInsuredItemList();
+        if (isDevMode()) {console.log(data)}
       },
       error: (error) => console.log(error),
     });

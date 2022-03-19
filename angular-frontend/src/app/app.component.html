@@ -1,10 +1,11 @@
-<div class="cm-page-content">
+<header>
   <app-menu></app-menu>
+</header>
 
-  <div class="container bg-light border border-secondary p-sm-3 my-sm-4 py-3">
-    <router-outlet></router-outlet>
-  </div>
+<main class="flex-shrink-0">
+  <router-outlet class="container d-block"></router-outlet>
+</main>
 
-</div>
-
-<app-footer></app-footer>
+<footer class="mt-auto bg-dark">
+  <app-footer class="container"></app-footer>
+</footer>
