@@ -1,6 +1,5 @@
 package com.claytonmasterson.personal_property.model;
 
-
 public enum ProductType {
 
     GENERAL("General"),
