@@ -5,13 +5,19 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+/**
+ * This class configures web security.
+ */
 
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
-     * Enforces use of HTTPS instead of HTTP. Code provided by Heroku.
+     * http.requiresChannel()... enforces use of HTTPS
+     * .and().csrf().disable()... opens site up for CORS
+     * .and().httpBasic() allows basic http traffic.
+     * .and().headers()... provide XSS protection (sanitized input)
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -23,7 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").permitAll()
                 .anyRequest()
                 .authenticated()
-            .and().httpBasic();
+            .and().httpBasic()
+            .and().headers().xssProtection();
     }
 
 }
