@@ -1,66 +1,72 @@
-<div class="container bg-light border border-secondary rounded-3 shadow-lg p-sm-3 my-sm-4 py-3">
+<div class="modal-dialog modal-lg">
+  <div class="modal-content rounded-5 shadow">
 
-  <div class="row">
-    <h2 class="display-5 fw-bold">Add New Item</h2>
+    <div class="modal-header p-4 pb-4 border-bottom-0">
+      <h2 class="display-5 fw-bold">Add New Item</h2>
+    </div>
 
     <form (ngSubmit)="onSubmit()" autocomplete="off" class="needs-validation">
-      <div class="row g-3">
-        <div class="col-md-6 form-floating">
-          <input type="text" class="form-control" id="name" name="name" placeholder="Name / Title"
-            [(ngModel)]="insuredItem.name" required />
-          <label class="form-label" for="name">Name / Title</label>
-          <div class="invalid-feedback">Name / Title is required.</div>
-        </div>
-        <div class="col-md-6 form-floating">
-          <input type="text" class="form-control" id="authorArtist" name="authorArtist" placeholder="Creator"
-            [(ngModel)]="insuredItem.authorArtist" />
-          <label class="form-label" for="authorArtist">Creator</label>
-        </div>
 
-        <div class="col-md-6 form-floating">
-          <input type="number" min="0" max="3000" class="form-control" id="releaseYear" name="releaseYear"
-            placeholder="Release Year" [(ngModel)]="insuredItem.releaseYear" />
-          <label class="form-label" for="releaseYear">Release Year</label>
-          <div class="invalid-feedback">Must be a valid year.</div>
-        </div>
-        <div class="col-md-6 form-floating">
-          <input type="number" step="any" class="form-control" id="estimatedValue" name="estimatedValue"
-            placeholder="Estimated Value" [(ngModel)]="insuredItem.estimatedValue" />
-          <label class="form-label" for="estimatedValue">Estimated Value</label>
-          <div class="invalid-feedback">Must be a number.</div>
-        </div>
+      <div class="modal-body p-4 pt-0">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="visually-hidden" for="name">Name / Title</label>
+            <input type="text" class="form-control" placeholder="Name / Title" id="name" name="name" [(ngModel)]="insuredItem.name" required />
+            <div class="invalid-feedback">Name / Title is required.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="visually-hidden" for="authorArtist">Creator</label>
+            <input type="text" class="form-control" placeholder="Author / Artist"id="authorArtist" name="authorArtist" [(ngModel)]="insuredItem.authorArtist" />
+          </div>
 
-        <div class="col-md-6 form-floating">
-          <select class="form-select" id="productType" name="productType"
-            [(ngModel)]="insuredItem.productType" required>
-            <option value="GENERAL" selected>General</option>
-            <option value="BOOK">Book</option>
-            <option value="CLOTHING">Clothing</option>
-            <option value="ELECTRONICS">Electronics</option>
-            <option value="FURNITURE">Furniture</option>
-            <option value="MUSIC">Music</option>
-            <option value="VIDEO">Video</option>
-          </select>
-          <label class="form-label" for="productType">Type</label>
-          <div class="invalid-feedback">Type is required.</div>
-        </div>
-        <div class="col-md-6 form-floating">
-          <input type="text" class="form-control" id="productCode" name="productCode" placeholder="Product Code"
-            [(ngModel)]="insuredItem.productCode" />
-          <label class="form-label" for="productCode">Product Code</label>
-        </div>
+          <div class="col-md-6">
+            <label class="visually-hidden" for="releaseYear">Release Year</label>
+            <input type="number" min="0" max="3000" class="form-control" placeholder="Release Year" id="releaseYear" name="releaseYear" [(ngModel)]="insuredItem.releaseYear" />
+            <div class="invalid-feedback">Must be a valid year.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="visually-hidden" for="estimatedValue">Estimated Value</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text">$</span>
+              <input type="number" step="any" class="form-control" placeholder="Value" id="estimatedValue" name="estimatedValue" [(ngModel)]="insuredItem.estimatedValue" />
+              <div class="invalid-feedback">Must be a number.</div>
+            </div>
+          </div>
 
-        <div class="col-12">
-          <label class="form-label" for="description">Description</label>
-          <textarea class="form-control" id="description" name="description"
-            [(ngModel)]="insuredItem.description"></textarea>
-        </div>
+          <div class="col-md-6">
+            <label class="visually-hidden" for="productType">Type</label>
+            <select class="form-select" id="productType" name="productType" [(ngModel)]="insuredItem.productType"
+              required>
+              <option value="GENERAL" selected>General</option>
+              <option value="BOOK">Book</option>
+              <option value="CLOTHING">Clothing</option>
+              <option value="ELECTRONICS">Electronics</option>
+              <option value="FURNITURE">Furniture</option>
+              <option value="MUSIC">Music</option>
+              <option value="VIDEO">Video</option>
+            </select>
+            <div class="invalid-feedback">Type is required.</div>
+          </div>
+          <div class="col-md-6">
+            <label class="visually-hidden" for="productCode">Product Code</label>
+            <input type="text" class="form-control" placeholder="ISBN / UPC" id="productCode" name="productCode" [(ngModel)]="insuredItem.productCode" />
+          </div>
 
-        <div class="col-12">
-          <button class="btn btn-outline-success" type="submit">Submit</button>
+          <div class="col-12">
+            <label class="visually-hidden" for="description">Description</label>
+            <textarea class="form-control" placeholder="Description" id="description" name="description" [(ngModel)]="insuredItem.description"></textarea>
+            <input type="submit" class="d-none" />
+          </div>
         </div>
-
       </div>
+
+      <div class="modal-footer flex-nowrap justify-content-end p-4 pt-1 border-top-0">
+        <div class="col-md-6 btn-group">
+          <button class="btn btn-outline-secondary" (click)="goToInsuredItemList()">Cancel</button>
+          <button class="btn btn-success" type="submit">Create</button>
+        </div>
+      </div>
+
     </form>
   </div>
 </div>
