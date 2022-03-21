@@ -13,8 +13,8 @@
           </strong>{{insuredItem.releaseYear}}</p>
         <p class="col mb-2 text-sm-end" [hidden]="!insuredItem.productCode"><strong>Code </strong><span
             class="user-select-all">{{insuredItem.productCode}}</span></p>
-        <p class="col mb-2 text-sm-end" [hidden]="!insuredItem.estimatedValue"><strong>Value
-          </strong>${{insuredItem.estimatedValue}}</p>
+        <p class="col mb-2 text-sm-end cm-estimated-value" [hidden]="!insuredItem.estimatedValue"><strong>Value
+          </strong>{{insuredItem.estimatedValue}}</p>
       </div>
       <div class="row my-3" [hidden]="!insuredItem.description">
         <h3>Description</h3>
