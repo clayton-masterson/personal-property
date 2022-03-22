@@ -27,7 +27,7 @@ body {
 /* Add dollar sign to Estimate Value */
 .cm-estimated-value::before {
   content: "$";
-  margin-right: 0.25em;
+  margin-right: 0.2em;
 }
 
 /* Adding more border radius options */

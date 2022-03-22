@@ -1,0 +1,19 @@
+{
+  "name": "Personal Property",
+  "short_name": "Property",
+  "icons": [
+    {
+      "src": "/assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "rgb(33, 37, 41)",
+  "background_color": "rgb(33, 37, 41)",
+  "display": "standalone"
+}
