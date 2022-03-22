@@ -1,4 +1,4 @@
-<div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+<div class="modal-dialog modal-xl">
   <div class="modal-content rounded-5 shadow">
 
     <div class="modal-header p-4 pb-2 border-bottom-0">
@@ -13,8 +13,8 @@
             <tr>
               <th>Name / Title</th>
               <th class="d-none d-sm-table-cell">Creator</th>
-              <th class="d-none d-md-table-cell">Type</th>
-              <th class="d-none d-md-table-cell">Value</th>
+              <th class="d-none d-lg-table-cell">Type</th>
+              <th class="d-none d-lg-table-cell">Value</th>
             </tr>
           </thead>
 
@@ -23,8 +23,8 @@
               (click)="insuredItemDetails(insuredItem.id)">
               <td>{{ insuredItem.name }}</td>
               <td class="d-none d-sm-table-cell">{{ insuredItem.authorArtist }}</td>
-              <td class="d-none d-md-table-cell cm-product-type">{{ insuredItem.productType }}</td>
-              <td class="d-none d-md-table-cell">$ {{ insuredItem.estimatedValue }}</td>
+              <td class="d-none d-lg-table-cell cm-product-type">{{ insuredItem.productType }}</td>
+              <td class="d-none d-lg-table-cell cm-estimated-value">{{ insuredItem.estimatedValue }}</td>
             </tr>
           </tbody>
         </table>

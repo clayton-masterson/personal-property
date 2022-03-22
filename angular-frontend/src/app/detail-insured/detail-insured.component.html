@@ -14,7 +14,7 @@
         <p class="col mb-2 text-sm-end" [hidden]="!insuredItem.productCode"><strong>Code </strong><span
             class="user-select-all">{{insuredItem.productCode}}</span></p>
         <p class="col mb-2 text-sm-end" [hidden]="!insuredItem.estimatedValue"><strong>Value
-          </strong>${{insuredItem.estimatedValue}}</p>
+          </strong><span class="cm-estimated-value">{{insuredItem.estimatedValue}}</span></p>
       </div>
       <div class="row my-3" [hidden]="!insuredItem.description">
         <h3>Description</h3>
@@ -24,7 +24,7 @@
 
     <div class="modal-footer flex-nowrap justify-content-between pt-0 border-top-0">
       <div class="col-md-3 offset-md-3">
-        <button class="btn btn-danger" (click)="deleteInsuredItem(insuredItem.id)">Delete</button>
+        <button class="btn btn-outline-danger" (click)="deleteInsuredItem(insuredItem.id)">Delete</button>
       </div>
       <div class="col-md-6 btn-group">
         <button class="btn btn-outline-secondary" (click)="goToInsuredItemList()">Back to List</button>
